@@ -41,7 +41,7 @@ studentBring()
     .catch(errorMessage => console.log(errorMessage));
 
 */
-
+/*
 // single line promise
 
 const promiseSucces = Promise.resolve('Creates a new promise');
@@ -53,3 +53,18 @@ promiseSucces.then(result => console.log(result));
 promiseError
     .then(rslt => console.log(rslt))
     .catch(error => console.log(error));
+*/
+
+const funcFirst = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('3 seconds operation end');
+    }, 3000);
+});
+const funcSecond = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('6 seconds operation end');
+    }, 6000);
+});
+
+Promise.all([funcFirst, funcSecond])
+    .then(result => console.log(result));
