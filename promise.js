@@ -16,7 +16,7 @@ myPromise
     .catch(error =>{console.log(error)});
 */
 
-
+/*
 function studentBring(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -40,3 +40,16 @@ studentBring()
     .then(studentArray =>studentWrite(studentArray))
     .catch(errorMessage => console.log(errorMessage));
 
+*/
+
+// single line promise
+
+const promiseSucces = Promise.resolve('Creates a new promise');
+const promiseError = Promise.reject('error found');
+
+
+promiseSucces.then(result => console.log(result));
+
+promiseError
+    .then(rslt => console.log(rslt))
+    .catch(error => console.log(error));
