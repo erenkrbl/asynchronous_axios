@@ -26,7 +26,8 @@ function studentBring(){
             array.push({sName : 'stusent ' + (i+1), id : i+1})
         }
 
-        resolve(array);
+        //resolve(array);
+        reject("Error");
         }, 2000);
     });
 }
@@ -36,5 +37,6 @@ function studentWrite(array) {
 }
 
 studentBring()
-    .then(studentArray =>studentWrite(studentArray));
+    .then(studentArray =>studentWrite(studentArray))
+    .catch(errorMessage => console.log(errorMessage));
 
