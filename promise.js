@@ -66,5 +66,7 @@ const funcSecond = new Promise((resolve, reject) => {
     }, 6000);
 });
 
-Promise.all([funcFirst, funcSecond])
-    .then(result => console.log(result));
+//Promise.all([funcFirst, funcSecond])
+//    .then(result => console.log(result));
+
+Promise.race([funcFirst, funcSecond]).then(result => console.log(result));
