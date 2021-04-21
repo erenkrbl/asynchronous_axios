@@ -25,14 +25,18 @@ function getComment(coursesName){
     });
 }
 
-getUser(1234).then(user => {
-    getCourses(user.fname).then(coursesArray => {
-        getComment(coursesArray[0]).then(comment =>{
-            console.log(comment);
-        })
-        console.log(coursesArray);
-    });
-});
+getUser(1234)
+    .then(user =>getCourses(user.fname))
+    .then(coursesArray => getComment(coursesArray[0]))
+    .then(comment => console.log(comment));
+
+// getUser(1234).then(user => {
+//     getCourses(user.fname).then(coursesArray => {
+//         getComment(coursesArray[0]).then(comment => {
+//             console.log(comment);
+//         });
+//     });
+// });
 
 // getCourses('eric').then(coursesArray => {
 //     console.log(coursesArray);
