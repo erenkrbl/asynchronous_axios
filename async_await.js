@@ -11,7 +11,7 @@ function getCourses(userName) {
     console.log(`Bring ${userName}'s courses`);
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            //reject('Bring courses error out');
+            reject('Bring courses error out');
             resolve(['python', 'javascript', 'flutter']);
         }, 2000);
     });
@@ -28,10 +28,14 @@ function getComment(coursesName){
 
 commenstShow();
 async function commenstShow() {
-    const userObje = await getUser(3456);
-    const coursesArray = await getCourses(userObje.fname);
-    const comment = await getComment(coursesArray[0]);
-    console.log(comment);
+   try {
+        const userObje = await getUser(3456);
+        const coursesArray = await getCourses(userObje.fname);
+        const comment = await getComment(coursesArray[0]);
+        console.log(comment);
+   } catch (err) {
+       console.log("Error " + err);
+   }
 }
 
 // getUser(1234)
