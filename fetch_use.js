@@ -10,9 +10,14 @@ function getJSON(e){
     e.preventDefault();
     fetch('students.json')
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+            let output = '';
+            result.forEach(student => {
+            output += `Student name ${student.name} id ${student.id} \n`
+        })
+        resultDiv.innerText = output;
+    })
 }
-
 //console.log(this);
 
 function getText(e){
