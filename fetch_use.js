@@ -15,5 +15,6 @@ function getText(e){
 
     fetch('deneme.txt')
         .then(response =>response.text())
-        .then(result => console.log(result));
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
 }
