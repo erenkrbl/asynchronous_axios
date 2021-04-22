@@ -5,12 +5,15 @@ btnTextBring.addEventListener('click', getText);
 
 function getText(e){
     e.preventDefault();
-    const fetchResult = fetch('deneme.txt');
-    fetchResult.then((response) => {
-        const responseText = response.text();
-        responseText.then(result => {
-            console.log(result);
-        });
-    });
-    console.log(fetchResult);
+    // const fetchResult = fetch('deneme.txt');
+    // fetchResult.then((response) => {
+    //     const responseText = response.text();
+    //     responseText.then(result => {
+    //         console.log(result);
+    //     });
+    // });
+
+    fetch('deneme.txt')
+        .then(response =>response.text())
+        .then(result => console.log(result));
 }
