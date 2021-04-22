@@ -1,6 +1,8 @@
 const btnTextBring = document.getElementById('btn-text-bring');
 btnTextBring.addEventListener('click', getText);
 
+const resultDiv = document.getElementById('result');
+
 //console.log(this);
 
 function getText(e){
@@ -15,6 +17,6 @@ function getText(e){
 
     fetch('deneme.txt')
         .then(response =>response.text())
-        .then(result => console.log(result))
+        .then(result => resultDiv.innerText = result)
         .catch(err => console.log(err));
 }
