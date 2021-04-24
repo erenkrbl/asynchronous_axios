@@ -56,10 +56,27 @@ function screenPrint(data) {
     resultDiv.innerHTML = output;
 }
 
-function jsonDataAdd(e) {
+// function jsonDataAdd(e) {
+//     e.preventDefault();
+
+//     fetch('https://jsonplaceholder.typicode.com/posts', {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             title: 'try',
+//             body: 'body fields',
+//             userId: 5,
+//         }),
+//         headers : { 'Content-Type': 'application/json'}
+
+//     })
+//         .then(response => response.json())
+//         .then(json => console.log(json));
+// }
+
+async function jsonDataAdd(e) {
     e.preventDefault();
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
             title: 'try',
@@ -69,6 +86,6 @@ function jsonDataAdd(e) {
         headers : { 'Content-Type': 'application/json'}
 
     })
-        .then(response => response.json())
-        .then(json => console.log(json));
+        const result = await response.json();
+        console.log(result);
 }
