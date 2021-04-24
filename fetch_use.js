@@ -43,5 +43,13 @@ function getJSONfromApi(e){
     e.preventDefault();
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
-    .then(result => console.log(result))
+    .then(result => screenPrint(result))
+}
+
+function screenPrint(data) {
+    let output = '';
+    data.forEach(user => {
+        output +=`<li> ${user.name} </li>`
+    });
+    resultDiv.innerHTML = output;
 }
