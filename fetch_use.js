@@ -1,7 +1,10 @@
 const btnTextBring = document.getElementById('btn-text-bring');
 const btnJSONBring = document.getElementById('btn-json-bring');
+const btnApiFromJSONBring = document.getElementById('btn-json-api-bring');
+
 btnTextBring.addEventListener('click', getText);
 btnJSONBring.addEventListener('click', getJSON);
+btnApiFromJSONBring.addEventListener('click', getJSONfromApi);
 
 
 const resultDiv = document.getElementById('result');
@@ -34,4 +37,11 @@ function getText(e){
         .then(response => response.text())
         .then(result => resultDiv.innerText = result)
         .catch(err => console.log(err));
+}
+
+function getJSONfromApi(e){
+    e.preventDefault();
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(result => console.log(result))
 }
