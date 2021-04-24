@@ -1,9 +1,11 @@
 const btnTextBring = document.getElementById('btn-text-bring');
 const btnJSONBring = document.getElementById('btn-json-bring');
+const btnJSONadd = document.getElementById('btn-json-data-add');
 const btnApiFromJSONBring = document.getElementById('btn-json-api-bring');
 
 btnTextBring.addEventListener('click', getText);
 btnJSONBring.addEventListener('click', getJSON);
+btnJSONadd.addEventListener('click', jsonDataAdd)
 btnApiFromJSONBring.addEventListener('click', getJSONfromApi);
 
 
@@ -52,4 +54,21 @@ function screenPrint(data) {
         output +=`<li> ${user.name} </li>`
     });
     resultDiv.innerHTML = output;
+}
+
+function jsonDataAdd(e) {
+    e.preventDefault();
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+            title: 'try',
+            body: 'body fields',
+            userId: 5,
+        }),
+        headers : { 'Content-Type': 'application/json'}
+
+    })
+        .then(response => response.json())
+        .then(json => console.log(json));
 }
