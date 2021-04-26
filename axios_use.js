@@ -14,14 +14,31 @@ errorBtn.addEventListener('click', errorOperation)
 
 
 function getData() {
-    axios({
-        method: 'GET',
-        url: 'https://jsonplaceholder.typicode.com/users',
+    // axios({
+    //     method: 'GET',
+    //     url: 'https://jsonplaceholder.typicode.com/users',
+    //     params: {
+    //         _limit:2
+    //     }
 
-    })
-    .then(response => resultPrintScreen(response))
-    .catch(err => console.log(err))
-    .then(() => console.log('completed get request'));
+    // })
+    // .then(response => resultPrintScreen(response))
+    // .catch(err => console.log(err))
+    // .then(() => console.log('completed get request'));
+    // axios
+    //     .get('https://jsonplaceholder.typicode.com/users', {
+    //         params: {
+    //             _limit: 1,
+    //         }
+    //     })
+    //     .then(response => resultPrintScreen(response))
+    //     .catch(err => console.log(err))
+    //     .then(() => console.log('completed get request'));
+    axios
+        .get('https://jsonplaceholder.typicode.com/users?_limit=3')
+        .then(response => resultPrintScreen(response))
+        .catch(err => console.log(err))
+        .then(() => console.log('completed get request'));
     
 }
 
