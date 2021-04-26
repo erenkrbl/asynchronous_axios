@@ -51,18 +51,26 @@ function postData() {
     // .catch(err => console.log(err))
     // .then(() => console.log("post data"))
 
-    axios({
-        method: 'POST',
-        url: 'https://jsonplaceholder.typicode.com/users',
-        data :{
-            name: 'Eric Oliver',
-            username: 'Erico',
-            email: 'e@o.com'
-        }
+    // axios({
+    //     method: 'POST',
+    //     url: 'https://jsonplaceholder.typicode.com/users',
+    //     data :{
+    //         name: 'Eric Oliver',
+    //         username: 'Erico',
+    //         email: 'e@o.com'
+    //     }
        
+    // })
+    // .then(response => resultPrintScreen(response))
+    // .catch(err => console.log(err));
+    
+    axios.post('https://jsonplaceholder.typicode.com/users', {
+        name: 'Tom Clark',
+        username: 'Tclark',
+        email:'tclark@tcl.com'
     })
     .then(response => resultPrintScreen(response))
-    .catch(err => console.log(err));   
+    .catch(err => console.log(err));
 }
 
 function putPatchData() {
