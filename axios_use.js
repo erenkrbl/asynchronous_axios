@@ -43,7 +43,15 @@ function getData() {
 }
 
 function postData() {
-    console.log("post data");
+    axios.post('https://jsonplaceholder.typicode.com/posts', {
+        title: 'New Title',
+        body: 'Here is body',
+        userId: 54
+    }).then(response =>resultPrintScreen(response))
+    .catch(err => console.log(err))
+    .then(() => console.log("post data"))
+
+    
 }
 
 function putPatchData() {
