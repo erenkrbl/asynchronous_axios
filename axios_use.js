@@ -2,12 +2,14 @@ const getBtn = document.getElementById('get');
 const postBtn = document.getElementById('post');
 const putPatchBtn = document.getElementById('put-patch');
 const sameTimeRequestBtn = document.getElementById('same-time-request');
+const deleteBtn = document.getElementById('delete')
 const headersBtn = document.getElementById('headers');
 const errorBtn = document.getElementById('error');
 
 getBtn.addEventListener('click', getData);
 postBtn.addEventListener('click', postData);
 putPatchBtn.addEventListener('click', putPatchData);
+deleteBtn.addEventListener('click', deleteData)
 sameTimeRequestBtn.addEventListener('click', sameTimeRequestData);
 headersBtn.addEventListener('click', customHeader);
 errorBtn.addEventListener('click', errorOperation)
@@ -88,6 +90,12 @@ function putPatchData() {
     .then(response => resultPrintScreen(response))
     .catch(err => console.log(err));
 
+}
+
+function deleteData(){
+    axios.delete('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => resultPrintScreen(response))
+    .catch(err => console.log(err));   
 }
 
 function sameTimeRequestData() {
