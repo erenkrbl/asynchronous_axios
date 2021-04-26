@@ -74,7 +74,13 @@ function postData() {
 }
 
 function putPatchData() {
-    console.log("put patch data");
+    axios.put('https://jsonplaceholder.typicode.com/users/1', {
+        name: 'Elvin Khan',
+        username: 'Elvin',
+        email: 'ekhan@ek.com',
+    })
+    .then(response => resultPrintScreen(response))
+    .catch(err => console.log(err));
 }
 
 function sameTimeRequestData() {
@@ -135,4 +141,15 @@ function resultPrintScreen (response) {
         </div>
     `
     
+}
+
+function errorPrint (error){
+    console.log(error);
+    document.querySelector('.result').innerHTML = `
+    <div class="notification is-info">
+    <div class="columns is-mobile is-vcentered">
+        <div class="column"><h1 class="title">${error}</div>
+        <div class="column"><h1 class="subtitle">result</div>
+    </div> 
+</div>`;
 }
