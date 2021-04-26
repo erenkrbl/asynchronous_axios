@@ -74,13 +74,20 @@ function postData() {
 }
 
 function putPatchData() {
-    axios.put('https://jsonplaceholder.typicode.com/users/1', {
-        name: 'Elvin Khan',
-        username: 'Elvin',
-        email: 'ekhan@ek.com',
+    // axios.put('https://jsonplaceholder.typicode.com/users/1', {
+    //     name: 'Elvin Khan',
+    //     username: 'Elvin',
+    //     email: 'ekhan@ek.com',
+    // })
+    // .then(response => resultPrintScreen(response))
+    // .catch(err => console.log(err));
+    axios.patch('https://jsonplaceholder.typicode.com/users/2', {
+        name: 'Oliver Thomas',
+        username: 'Oliver'
     })
     .then(response => resultPrintScreen(response))
     .catch(err => console.log(err));
+
 }
 
 function sameTimeRequestData() {
