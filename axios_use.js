@@ -99,7 +99,16 @@ function deleteData(){
 }
 
 function sameTimeRequestData() {
-    console.log("same time request");
+    axios.all([
+        axios.get('https://jsonplaceholder.typicode.com/users'),
+        axios.post('https://jsonplaceholder.typicode.com/posts'),   
+    ])
+    .then(response => {
+        console.log(response[0].data);
+        console.log(response[1].data);
+        resultPrintScreen(response[0])
+    })
+    .catch(err => console.log(err))
 }
 
 function customHeader () {
