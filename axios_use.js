@@ -120,6 +120,17 @@ function sameTimeRequestData() {
     }))
 }
 
+axios.interceptors.request.use(config => {
+    console.log(`${config.method} query was made to following address ${config.url} and set as timeout ${config.timeout}`)
+    return config;
+});
+
+axios.interceptors.response.use(response => {
+    return response;
+}, error => {
+    return Promise.reject(error);
+});
+
 function customHeader () {
     console.log('create custom header');
 }
