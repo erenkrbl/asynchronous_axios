@@ -132,8 +132,22 @@ axios.interceptors.response.use(response => {
 });
 
 function customHeader () {
-    console.log('create custom header');
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'yourtokenvalue'
+        }
+    }
+
+    axios.post('https://jsonplaceholder.typicode.com/users', {
+        name: 'Tom Clark',
+        username: 'Tclark',
+        email:'tclark@tcl.com'
+    }, config)
+    .then(response => resultPrintScreen(response))
+    .catch(err => console.log(err));
 }
+
 
 function errorOperation() {
     console.log('error operations')
