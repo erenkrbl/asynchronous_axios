@@ -151,8 +151,24 @@ function customHeader () {
 }
 
 
+
 function errorOperation() {
-    console.log('error operations')
+    axios
+        .get('https://jsonplaceholder.typicode.com/userss?_limit=1')
+        .then(response => resultPrintScreen(response))
+        .catch(err => errorPrint(err))
+        .then(() => console.log('completed get request'));
+}
+
+function errorPrint (err){
+    document.querySelector('.result').innerHTML = `
+    <div class="notification is-info">
+    <div class="columns is-mobile is-vcentered">
+        <div class="column"><h1 class="title">
+        <pre>${JSON.stringify(err.response.status, null, 2)}</pre></h1></div>
+        <div class="column"><h1 class="subtitle">result</h1></div>
+    </div> 
+</div>`;
 }
 
 function resultPrintScreen (response) {
@@ -203,13 +219,3 @@ function resultPrintScreen (response) {
     
 }
 
-function errorPrint (error){
-    console.log(error);
-    document.querySelector('.result').innerHTML = `
-    <div class="notification is-info">
-    <div class="columns is-mobile is-vcentered">
-        <div class="column"><h1 class="title">${error}</div>
-        <div class="column"><h1 class="subtitle">result</div>
-    </div> 
-</div>`;
-}
