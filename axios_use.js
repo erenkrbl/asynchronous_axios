@@ -131,6 +131,8 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error);
 });
 
+axios.defaults.headers.common['X-Auth-Token'] = 'apitokenvalue';
+
 function customHeader () {
     const config = {
         headers: {
