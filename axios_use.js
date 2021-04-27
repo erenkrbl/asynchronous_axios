@@ -99,16 +99,25 @@ function deleteData(){
 }
 
 function sameTimeRequestData() {
+    // axios.all([
+    //     axios.get('https://jsonplaceholder.typicode.com/users'),
+    //     axios.get('https://jsonplaceholder.typicode.com/posts'),   
+    // ])
+    // .then(response => {
+    //     console.log(response[0].data);
+    //     console.log(response[1].data);
+    //     resultPrintScreen(response[0])
+    // })
+    // .catch(err => console.log(err))
     axios.all([
-        axios.get('https://jsonplaceholder.typicode.com/users'),
-        axios.post('https://jsonplaceholder.typicode.com/posts'),   
+        axios.get('https://jsonplaceholder.typicode.com/users?_limit=1'),
+        axios.get('https://jsonplaceholder.typicode.com/posts?_limit=1'),   
     ])
-    .then(response => {
-        console.log(response[0].data);
-        console.log(response[1].data);
-        resultPrintScreen(response[0])
-    })
-    .catch(err => console.log(err))
+    .then(axios.spread((users, posts) => {
+        console.log(users.data);
+        console.log(posts.data);
+        resultPrintScreen(users);
+    }))
 }
 
 function customHeader () {
